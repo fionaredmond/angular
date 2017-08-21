@@ -2,14 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Dish } from '../shared/dish';
 
-@Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
-})
-export class MenuComponent implements OnInit {
-
-	dishes: Dish[] = [
+const DISHES: Dish[] = [
 	{
 	  name:'Hawaiian Pizza',
 	  image: '/assets/images/hawaiianpizza.png',
@@ -44,9 +37,20 @@ export class MenuComponent implements OnInit {
 	}
 	];
 
-  constructor() { }
+@Component({
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.scss']
+})
+export class MenuComponent implements OnInit {
 
-  ngOnInit() {
+	dishes: Dish[] = DISHES;
+
+	selectedDish: Dish = DISHES[0];
+
+	constructor() { }
+
+	ngOnInit() {
   }
 
 }
